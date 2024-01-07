@@ -2,12 +2,11 @@
 
 require './lib/linked_list'
 
-list = LinkedList.new
+list = LinkedList.new(0)
 puts list
-p list.size
-list.prepend(1)
-p list.size
-p list.at(0)
-p list.contains?(2)
-p list.size
-p list.tail
+list.append(1)
+list.append(2)
+list.append(3)
+list.prepend(-1)
+list.prepend(-2)
+puts list

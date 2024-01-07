@@ -6,8 +6,8 @@ require './lib/node'
 class LinkedList
   attr_reader :head
 
-  def initialize
-    @head = Node.new
+  def initialize(value = nil)
+    @head = Node.new(value)
   end
 
   def append(value)
@@ -48,6 +48,25 @@ class LinkedList
     return false if last_node?(node)
 
     contains?(value, node.next_node)
+  end
+
+  def find(value, node = head)
+    return node if node.value == value
+    return nil if last_node?(node)
+
+    find(value, node.next_node)
+  end
+
+  def to_s
+    node = head
+    msg = ''
+    while node
+      msg += "( #{node.value} )"
+      msg += ' -> ' unless node.next_node.nil?
+      msg += ' -> nil' if last_node?(node)
+      node = node.next_node
+    end
+    msg
   end
 
   private
