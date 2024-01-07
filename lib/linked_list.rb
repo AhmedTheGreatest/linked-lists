@@ -75,6 +75,12 @@ class LinkedList
     prev_node.next_node = Node.new(value, next_node)
   end
 
+  def remove_at(index)
+    node = at(index)
+    prev_node = at(index - 1)
+    prev_node.next_node = node.next_node
+  end
+
   private
 
   def last_node?(node)
