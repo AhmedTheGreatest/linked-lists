@@ -4,6 +4,8 @@ require './lib/node'
 
 # A Class representing a Linked List
 class LinkedList
+  attr_reader :head
+
   def initialize
     @head = Node.new
   end
@@ -13,19 +15,26 @@ class LinkedList
   end
 
   def prepend(value)
-    @head = Node.new(value, @head)
+    @head = Node.new(value, head)
   end
 
-  def size(node = @head, count = 0)
+  def size(node = head, count = 0)
     return count if last_node?(node)
 
     size(node.next_node, count + 1)
   end
 
-  def tail(node = @head)
+  def tail(node = head)
     return node if last_node?(node)
 
     tail(node.next_node)
+  end
+
+  def at(index, node = head)
+    count = 0
+    return node if count == index
+
+    at(index - 1, node.next_node)
   end
 
   def last_node?(node)

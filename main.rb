@@ -7,4 +7,5 @@ puts list
 p list.size
 list.prepend(1)
 p list.size
+p list.at(0)
 p list.tail
