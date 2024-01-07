@@ -69,6 +69,12 @@ class LinkedList
     msg
   end
 
+  def insert_at(value, index)
+    prev_node = at(index - 1)
+    next_node = prev_node.next_node
+    prev_node.next_node = Node.new(value, next_node)
+  end
+
   private
 
   def last_node?(node)
