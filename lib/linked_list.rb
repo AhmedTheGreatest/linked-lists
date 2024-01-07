@@ -16,6 +16,12 @@ class LinkedList
     @head = Node.new(value, @head)
   end
 
+  def size(node = @head, count = 0)
+    return count if last_node?(node)
+
+    size(node.next_node, count + 1)
+  end
+
   def tail(node = @head)
     return node if last_node?(node)
 
