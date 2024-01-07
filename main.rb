@@ -4,4 +4,5 @@ require './lib/linked_list'
 
 list = LinkedList.new
 puts list
-puts list.tail.next_node
+list.prepend(1)
+p list.tail

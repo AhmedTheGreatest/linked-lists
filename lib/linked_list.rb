@@ -8,6 +8,14 @@ class LinkedList
     @head = Node.new
   end
 
+  def append(value)
+    tail.next_node = Node.new(value)
+  end
+
+  def prepend(value)
+    @head = Node.new(value, @head)
+  end
+
   def tail(node = @head)
     return node if last_node?(node)
 
