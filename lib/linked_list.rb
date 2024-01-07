@@ -43,6 +43,13 @@ class LinkedList
     pop(node.next_node)
   end
 
+  def contains?(value, node = head)
+    return true if node.value == value
+    return false if last_node?(node)
+
+    contains?(value, node.next_node)
+  end
+
   private
 
   def last_node?(node)
