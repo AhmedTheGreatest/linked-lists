@@ -37,6 +37,14 @@ class LinkedList
     at(index - 1, node.next_node)
   end
 
+  def pop(node = head)
+    return node.next_node = nil if last_node?(node.next_node)
+
+    pop(node.next_node)
+  end
+
+  private
+
   def last_node?(node)
     return true if node.next_node.nil?
 
